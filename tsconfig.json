@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "target": "es2022", // JavaScript version to compile to
+        "module": "commonjs", // Module system
+        "strict": true, // Enable all strict type-checking options
+        "esModuleInterop": true, // Compatibility between CommonJS and ES Modules
+        "skipLibCheck": true, // Skip type checking of declaration files for performance
+        "allowJs": true, // Allow importing JavaScript files
+        "resolveJsonModule": true, // Allow importing JSON files
+        "isolatedModules": true, // Ensure each file can be transpiled independently
+        "jsx": "react-jsx", // JSX support for React projects
+        "outDir": "./dist", // Output directory for compiled files
+        "baseUrl": ".", // Base directory for module resolution
+        "paths": { // Optional: custom module paths
+            "@components/*": ["src/components/*"]
+        }
+    },
+    "include": ["src/**/*"], // Files to include in compilation
+    "exclude": ["node_modules", "dist"] // Files/folders to exclude
+}

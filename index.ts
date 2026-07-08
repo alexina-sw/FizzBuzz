@@ -1,5 +1,21 @@
+import * as readline from 'node:readline';
+
+function readInput(question: string): Promise<string> {
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+
+    return new Promise((resolve) => {
+        rl.question(question, (answer: string) => {
+            rl.close();
+            resolve(answer);
+        });
+    });
+}
+
 // This is our main function
-function fizzbuzz(): void {
+function fizzbuzz(n: number): void {
     const bang: string = "Bang";
     const bong: string = "Bong";
     const buzz: string = "Buzz";
@@ -8,7 +24,7 @@ function fizzbuzz(): void {
 
     const output: string[] = [];
 
-    for (let i: number = 1; i <= 100; i ++) {
+    for (let i: number = 1; i <= n; i ++) {
         if (i % 3 === 0) {
             output.push(fizz);
         }
@@ -43,4 +59,10 @@ function fizzbuzz(): void {
 }
 
 // Now, we run the main function:
-fizzbuzz();
+async function main() {
+    const maxInputStr: string = await readInput('Input a number: ');
+    const maxInput = parseInt(maxInputStr);
+    fizzbuzz(maxInput);
+}
+
+main();

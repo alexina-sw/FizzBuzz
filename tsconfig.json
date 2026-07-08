@@ -13,7 +13,8 @@
         "baseUrl": ".", // Base directory for module resolution
         "paths": { // Optional: custom module paths
             "@components/*": ["src/components/*"]
-        }
+        },
+        "types": ["node"]
     },
     "include": ["src/**/*"], // Files to include in compilation
     "exclude": ["node_modules", "dist"] // Files/folders to exclude

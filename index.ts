@@ -15,8 +15,8 @@ function readInput(question: string): Promise<string> {
 }
 
 // This is our main function
-function fizzbuzz(n: number, useFizz?: boolean, useBuzz?: boolean, useBang?: boolean, useBong?: boolean,
-    useFezz?: boolean, useReverse?: boolean): void {
+export function fizzbuzz(n: number, useFizz: boolean = true, useBuzz: boolean= true, useBang: boolean= true, useBong: boolean = true,
+    useFezz: boolean = true, useReverse: boolean = true): string[] {
     const bang: string = "Bang";
     const bong: string = "Bong";
     const buzz: string = "Buzz";
@@ -24,6 +24,7 @@ function fizzbuzz(n: number, useFizz?: boolean, useBuzz?: boolean, useBang?: boo
     const fizz: string = "Fizz";
 
     const output: string[] = [];
+    const finalOutput: string[] = [];
 
     for (let i: number = 1; i <= n; i ++) {
         if (i % 3 === 0 && useFizz) {
@@ -54,9 +55,11 @@ function fizzbuzz(n: number, useFizz?: boolean, useBuzz?: boolean, useBang?: boo
             output.reverse();
         }
         const result: string = output.length === 0 ? i.toString() : output.join("");
-        console.log(result)
+        console.log(result);
+        finalOutput.push(result);
         output.length = 0;
     }
+    return finalOutput
 }
 
 // Now, we run the main function:
@@ -65,7 +68,6 @@ async function main() {
     const maxInput = parseInt(maxInputStr);
 
     const args = process.argv.slice(2);
-    console.log("Arguments:", args);
 
     const useFizz: boolean = args.includes("3");
     const useBuzz: boolean = args.includes("5");

@@ -11,9 +11,11 @@
         "jsx": "react-jsx", // JSX support for React projects
         "outDir": "./dist", // Output directory for compiled files
         "baseUrl": ".", // Base directory for module resolution
+        "ignoreDeprecations": "6.0",
         "paths": { // Optional: custom module paths
             "@components/*": ["src/components/*"]
-        }
+        },
+        "types": ["node"]
     },
     "include": ["src/**/*"], // Files to include in compilation
     "exclude": ["node_modules", "dist"] // Files/folders to exclude

@@ -1,36 +1,34 @@
-// This is our main function
-function fizzbuzz(): void {
-    const bang: string = "Bang";
-    const bong: string = "Bong";
-    const buzz: string = "Buzz";
-    const fezz: string = "Fezz";
-    const fizz: string = "Fizz";
+const enum Words {
+    bang = "Bang",
+    bong = "Bong",
+    buzz = "Buzz",
+    fezz = "Fezz",
+    fizz = "Fizz"
+}
 
+function fizzbuzz(): void {
     const output: string[] = [];
 
-    for (let i: number = 1; i <= 100; i ++) {
+    for (let i: number = 1; i <= 255; i ++) {
         if (i % 3 === 0) {
-            output.push(fizz);
+            output.push(Words.fizz);
         }
         if (i % 5 === 0) {
-            output.push(buzz);
+            output.push(Words.buzz);
         }
         if (i % 7 === 0) {
-            output.push(bang);
+            output.push(Words.bang);
         }
         if (i % 11 === 0) {
             output.length = 0;
-            if (i % 13 === 0) {
-                output.push(fezz);
-            }
-            output.push(bong);
+            output.push(Words.bong);
         }
         if (i % 13 === 0) {
             const index = output.findIndex(word => word.startsWith("B"));
             if (index === -1) {
-                output.push(fezz);
+                output.push(Words.fezz);
             } else {
-                output.splice(index, 0, fezz);
+                output.splice(index, 0, Words.fezz);
             }
         }
         if (i % 17 === 0) {
@@ -42,5 +40,4 @@ function fizzbuzz(): void {
     }
 }
 
-// Now, we run the main function:
 fizzbuzz();

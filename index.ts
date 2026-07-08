@@ -7,9 +7,9 @@ const enum Words {
 }
 
 function fizzbuzz(): void {
-    const output: string[] = [];
 
     for (let i: number = 1; i <= 255; i ++) {
+        const output: string[] = [];
         if (i % 3 === 0) {
             output.push(Words.fizz);
         }
@@ -36,7 +36,6 @@ function fizzbuzz(): void {
         }
         const result: string = output.length === 0 ? i.toString() : output.join("");
         console.log(result)
-        output.length = 0;
     }
 }
 

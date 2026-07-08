@@ -1,5 +1,5 @@
 import { fizzbuzz } from './index.ts'
 
-test('Empty input, empty output', () => {
+test('Input 1, output 1', () => {
   expect(fizzbuzz(1)).toStrictEqual(['1']);
 });
